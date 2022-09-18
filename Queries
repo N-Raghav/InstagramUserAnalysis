@@ -1,0 +1,10 @@
+select * from users order by created_at desc limit 5;  
+select id from users where id not in (select user_id from photos) ;
+SELECT photo_id,count(*) FROM likes GROUP BY photo_id ORDER BY COUNT(*) DESC LIMIT 1; 
+SELECT tag_id,count(*) FROM photo_tags GROUP BY tag_id ORDER BY COUNT(*) DESC LIMIT 5;
+SELECT  dayname(created_at),count(*) from users order by dayname(created_at) desc ; 
+select avg(count) from ( SELECT count(*) as count FROM photos GROUP BY user_id ) as counts;
+select(select count(photo_id) from likes ) / (select count(id) from users) as ratio ;
+select count(photo_id) from likes ;
+select user_id,count(photo_id) from likes group by user_id order by count(photo_id) desc;
+
